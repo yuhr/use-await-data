@@ -4,18 +4,21 @@
   "description": "A React hook that executes an async task to populate the desired data.",
   "type": "module",
   "sideEffects": false,
-  "source": "src/index.ts",
+  "source": "./src/index.ts",
   "main": "./dst/index.cjs",
   "module": "./dst/index.module.js",
   "unpkg": "./dst/index.umd.js",
-  "types": "dst/index.d.ts",
+  "types": "./dst/index.d.ts",
   "exports": {
     ".": {
-      "browser": "./dst/index.module.js",
-      "umd": "./dst/index.umd.js",
-      "require": "./dst/index.cjs",
-      "types": "./dst/index.d.ts",
-      "default": "./dst/index.modern.js"
+      "import": {
+        "default": "./dst/index.modern.js",
+        "types": "./dst/index.d.ts"
+      },
+      "require": {
+        "default": "./dst/index.cjs",
+        "types": "./dst/index.d.ts"
+      }
     }
   },
   "files": [
