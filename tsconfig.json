@@ -4,8 +4,10 @@
     "exactOptionalPropertyTypes": true,
     "noUncheckedIndexedAccess": true,
     "target": "esnext",
-    "module": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "isolatedModules": true,
     "outDir": "dst",
     "rootDir": "src"
   }
