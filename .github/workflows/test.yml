@@ -6,28 +6,12 @@ on:
 jobs:
   "build":
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
     steps:
       - uses: actions/checkout@v4
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Cache .pnpm-store
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Install pnpm
-        run: curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run tests
-        run: pnpm test
+          node-version-file: ./.tool-versions
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm test
