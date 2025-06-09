@@ -10,10 +10,6 @@
   "types": "./dst/index.d.ts",
   "exports": {
     ".": {
-      "default": {
-        "default": "./dst/index.modern.js",
-        "types": "./dst/index.d.ts"
-      },
       "import": {
         "default": "./dst/index.module.js",
         "types": "./dst/index.d.ts"
