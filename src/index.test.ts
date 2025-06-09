@@ -1,6 +1,6 @@
-import { renderHook, act } from "@testing-library/react-hooks"
-import { useState, useCallback, useMemo } from "react"
-import useAwaitData from "."
+import { act, renderHook } from "@testing-library/react-hooks"
+import { useCallback, useMemo, useState } from "react"
+import useAwaitData from "./index.ts"
 
 const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
