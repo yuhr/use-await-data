@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useRef } from "react"
+import { useCallback, useMemo, useRef, useState } from "react"
 
 const symbolInvalidate: unique symbol = Symbol()
 const symbolAborted: unique symbol = Symbol()
@@ -186,10 +186,10 @@ const useAwaitData = <Value>(
     const { signal } = abortController
     const scheduler: useAwaitData.Scheduler = { tick, signal }
 
-    updateResult({ status: "running", abort })
     // Invalidate the stale task
     if (staleTaskRef.current) tasks.delete(staleTaskRef.current)
     staleTaskRef.current = task
+    updateResult({ status: "running", abort })
     if (staleAbortControllerRef.current) staleAbortControllerRef.current.abort()
     staleAbortControllerRef.current = abortController
     // Start the task
